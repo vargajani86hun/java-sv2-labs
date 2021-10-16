@@ -7,5 +7,6 @@ public class StatementMain {
         int y = 11 - x;
         int z = 8;
         boolean b = (x > z);
+        boolean c = b || (z > 5);
     }
 }
