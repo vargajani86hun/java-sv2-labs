@@ -18,5 +18,10 @@ public class LocalVariablesMain {
         System.out.println(s);
         String t = s;
         System.out.println(t);
+        {
+            int x = 0;
+            System.out.println("Az x értéke: " + x);
+            System.out.println("Az a változó érétke: " + a);
+        }
     }
 }
