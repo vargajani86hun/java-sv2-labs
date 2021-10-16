@@ -8,11 +8,13 @@ public class LocalVariablesMain {
 
         int a = 2;
         System.out.println("Az a nevű változó értéke: " + a);
-        System.out.println(i);
+//        System.out.println(i);
         int i = 3;
         int j = 4;
         int k = i;
         System.out.println("Az i, j és k értéke: " + i +"; " + j + "; " + k);
 
+        String s = "Hello World";
+        System.out.println(s);
     }
 }
