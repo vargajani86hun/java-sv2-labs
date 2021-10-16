@@ -12,14 +12,14 @@ public class BankAccount {
     }
 
     public void deposit(int amount){
-
+        balance += amount;
     }
 
     public void withdraw(int amount) {
-
+        balance -= amount;
     }
 
     public String getInfo(){
-        return "";
+        return owner + " (" + accountNumber + "): " + balance + " Ft";
     }
 }
