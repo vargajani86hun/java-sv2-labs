@@ -6,5 +6,6 @@ public class StatementMain {
         int x = 5 + 6;
         int y = 11 - x;
         int z = 8;
+        boolean b = (x > z);
     }
 }
