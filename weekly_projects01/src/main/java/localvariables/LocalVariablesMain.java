@@ -3,7 +3,7 @@ package localvariables;
 public class LocalVariablesMain {
 
     public static void main(String[] args) {
-        boolean b ;
+        boolean b = false;
         System.out.println("A b értéke: " + b);
 
     }
