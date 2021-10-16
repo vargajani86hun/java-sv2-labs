@@ -6,5 +6,7 @@ public class LocalVariablesMain {
         boolean b = false;
         System.out.println("A b értéke: " + b);
 
+        int a = 2;
+        System.out.println("Az a nevű változó értéke: " + a);
     }
 }
