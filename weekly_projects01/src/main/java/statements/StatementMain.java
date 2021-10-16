@@ -9,5 +9,8 @@ public class StatementMain {
         boolean b = (x > z);
         boolean c = b || (z > 5);
         z++;
+        System.out.println("Az x értéke: " + x + ", az y értéke: " + y + ", a z értéke: " + z);
+        System.out.println("A b értéke: " + b + ", a c értéke: " + c);
+
     }
 }
