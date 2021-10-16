@@ -29,7 +29,7 @@ public class Client {
         this.year = year;
     }
 
-    public void migrate(String address){
-        this.address = address;
+    public void migrate(String newAddress){
+        address = newAddress;
     }
 }
