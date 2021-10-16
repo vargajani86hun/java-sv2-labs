@@ -12,4 +12,16 @@ public class Book {
     public void register(String regNumber){
         this.regNumber = regNumber;
     }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getRegNumber() {
+        return regNumber;
+    }
 }
