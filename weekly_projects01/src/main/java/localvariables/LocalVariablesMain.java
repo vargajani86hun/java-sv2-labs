@@ -23,5 +23,6 @@ public class LocalVariablesMain {
             System.out.println("Az x értéke: " + x);
             System.out.println("Az a változó érétke: " + a);
         }
+        System.out.println("Az x értéke: " + x);
     }
 }
