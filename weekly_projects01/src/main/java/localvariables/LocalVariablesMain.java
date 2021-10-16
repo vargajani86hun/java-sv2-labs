@@ -16,5 +16,7 @@ public class LocalVariablesMain {
 
         String s = "Hello World";
         System.out.println(s);
+        String t = s;
+        System.out.println(t);
     }
 }
