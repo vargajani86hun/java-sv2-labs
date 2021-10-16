@@ -8,7 +8,7 @@ public class LocalVariablesMain {
 
         int a = 2;
         System.out.println("Az a nevű változó értéke: " + a);
-
+        System.out.println(i);
         int i = 3;
         int j = 4;
         int k = i;
