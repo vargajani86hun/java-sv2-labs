@@ -22,7 +22,9 @@ public class Investment {
     }
 
     public double close(int days) {
-        return active ? ((fund + this.getYield(days)) * (1-cost)) : 0;
+        double total = active ? ((fund + this.getYield(days)) * (1 - cost / 100)) : 0;
+        active = false;
+        return total;
     }
 
 }
