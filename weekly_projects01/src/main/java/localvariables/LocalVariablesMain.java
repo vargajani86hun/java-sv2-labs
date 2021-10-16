@@ -8,5 +8,9 @@ public class LocalVariablesMain {
 
         int a = 2;
         System.out.println("Az a nevű változó értéke: " + a);
+
+        int i = 3;
+        int j = 4;
+
     }
 }
