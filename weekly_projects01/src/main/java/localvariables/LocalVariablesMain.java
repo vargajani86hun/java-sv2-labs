@@ -12,5 +12,7 @@ public class LocalVariablesMain {
         int i = 3;
         int j = 4;
         int k = i;
+        System.out.println("Az i, j és k értéke: " + i +"; " + j + "; " + k);
+
     }
 }
