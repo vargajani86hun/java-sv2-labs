@@ -8,5 +8,6 @@ public class StatementMain {
         int z = 8;
         boolean b = (x > z);
         boolean c = b || (z > 5);
+        z++;
     }
 }
