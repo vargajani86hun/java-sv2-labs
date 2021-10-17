@@ -14,5 +14,8 @@ public class IntroControlMain {
 
         System.out.println(ic.calculateBonus(980_000));
         System.out.println(ic.calculateBonus(1_180_000));
+
+        System.out.println(ic.calculateConsumption(2340, 2760));
+        System.out.println(ic.calculateConsumption(9840, 60));
     }
 }

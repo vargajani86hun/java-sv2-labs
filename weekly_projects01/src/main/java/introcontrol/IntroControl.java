@@ -26,9 +26,16 @@ public class IntroControl {
     }
 
     public int calculateBonus (int sale) {
-        //return (sale >= 1_000_000) ? sale / 10 : 0;
+        //return (sale >= 1_000_000) ? (sale / 10) : 0;
         if (sale < 1_000_000)
             return 0;
         return sale / 10;
+    }
+
+    public int calculateConsumption(int prev, int next) {
+        //return (prev > next) ? (9999 - prev + next + 1) : (next - prev);
+        if (prev < next)
+            return next - prev;
+        return 9999 - prev + next + 1;
     }
 }
