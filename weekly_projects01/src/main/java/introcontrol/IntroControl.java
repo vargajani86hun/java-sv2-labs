@@ -10,4 +10,11 @@ public class IntroControl {
         else
             return number -= 10;
     }
+
+    public String describeNumber(int number) {
+//      return number == 0 ? "zero" : "not zero";
+        if (number == 0)
+            return "zero";
+        return "not zero";
+    }
 }
