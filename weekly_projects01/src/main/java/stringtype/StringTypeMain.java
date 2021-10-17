@@ -6,5 +6,6 @@ public class StringTypeMain {
         String prefix = "Hello ";
         String name = "John Doe";
         String message = prefix + name;
+        message = message + 444;
     }
 }
