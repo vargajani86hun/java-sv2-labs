@@ -50,4 +50,18 @@ public class IntroControl {
             System.out.println(i);
         }
     }
+
+    public void printNumbersBetweenAnyDirection(int a, int b) {
+        if (a <= b) {
+            for (int i = a; i <= b; i++) {
+                System.out.println(i);
+            }
+        }
+        else {
+            for (int i = a; i >= b; i--) {
+                System.out.println(i);
+            }
+        }
+    }
+
 }

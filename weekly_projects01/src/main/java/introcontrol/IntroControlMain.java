@@ -19,6 +19,14 @@ public class IntroControlMain {
         System.out.println(ic.calculateConsumption(9840, 60));
 
         ic.printNumbers(10);
+        System.out.println("-");
+
         ic.printNumbersBetween(3, 8);
+        System.out.println("-");
+
+        ic.printNumbersBetweenAnyDirection(2,5);
+        System.out.println("-");
+        ic.printNumbersBetweenAnyDirection(8,5);
+        System.out.println("-");
     }
 }
