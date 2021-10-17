@@ -13,5 +13,7 @@ public class StringTypeMain {
         System.out.println(message);
         System.out.println(b);
         System.out.println(c);
+        message = "" + "";
+        System.out.println(message + ", " + message.length());
     }
 }
