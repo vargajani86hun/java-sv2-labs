@@ -28,5 +28,11 @@ public class IntroControlMain {
         System.out.println("-");
         ic.printNumbersBetweenAnyDirection(8,5);
         System.out.println("-");
+
+        ic.printOddNumbers(10);
+        System.out.println("-");
+        ic.printOddNumbers(11);
+        System.out.println("-");
+
     }
 }

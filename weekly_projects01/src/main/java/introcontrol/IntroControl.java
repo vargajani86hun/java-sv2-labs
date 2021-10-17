@@ -64,4 +64,9 @@ public class IntroControl {
         }
     }
 
+    public void printOddNumbers(int max) {
+        for (int i = 1; i <= max; i += 2) {
+            System.out.println(i);
+        }
+    }
 }
