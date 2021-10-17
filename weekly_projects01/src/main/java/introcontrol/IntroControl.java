@@ -44,4 +44,10 @@ public class IntroControl {
             System.out.println(i);
         }
     }
+
+    public void printNumbersBetween(int min, int max) {
+        for (int i = min; i <= max; i++) {
+            System.out.println(i);
+        }
+    }
 }
