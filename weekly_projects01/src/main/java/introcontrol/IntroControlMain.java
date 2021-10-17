@@ -17,5 +17,7 @@ public class IntroControlMain {
 
         System.out.println(ic.calculateConsumption(2340, 2760));
         System.out.println(ic.calculateConsumption(9840, 60));
+
+        ic.printNumbers(10);
     }
 }

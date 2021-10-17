@@ -38,4 +38,10 @@ public class IntroControl {
             return next - prev;
         return 9999 - prev + next + 1;
     }
+
+    public void printNumbers(int max) {
+        for (int i = 0; i <= max; i++){
+            System.out.println(i);
+        }
+    }
 }
