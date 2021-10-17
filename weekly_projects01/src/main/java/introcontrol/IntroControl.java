@@ -17,4 +17,11 @@ public class IntroControl {
             return "zero";
         return "not zero";
     }
+
+    public String greetingToJoe(String name) {
+        //return ("Joe").equals(name) ? "Hello Joe" : "";
+        if (("Joe").equals(name))
+            return "Hello Joe";
+        return "";
+    }
 }
