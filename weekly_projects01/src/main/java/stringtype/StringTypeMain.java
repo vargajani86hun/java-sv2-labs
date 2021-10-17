@@ -7,5 +7,7 @@ public class StringTypeMain {
         String name = "John Doe";
         String message = prefix + name;
         message = message + 444;
+        boolean b = ("Hello John Doe").equals(message);
+
     }
 }
