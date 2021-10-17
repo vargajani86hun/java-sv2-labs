@@ -8,6 +8,6 @@ public class StringTypeMain {
         String message = prefix + name;
         message = message + 444;
         boolean b = ("Hello John Doe").equals(message);
-
+        boolean c = ("Hello John Doe444").equals(message);
     }
 }
