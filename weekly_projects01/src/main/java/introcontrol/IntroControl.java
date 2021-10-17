@@ -24,4 +24,11 @@ public class IntroControl {
             return "Hello Joe";
         return "";
     }
+
+    public int calculateBonus (int sale) {
+        //return (sale >= 1_000_000) ? sale / 10 : 0;
+        if (sale < 1_000_000)
+            return 0;
+        return sale / 10;
+    }
 }

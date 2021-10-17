@@ -11,5 +11,8 @@ public class IntroControlMain {
 
         System.out.println(ic.greetingToJoe("Joseph"));
         System.out.println(ic.greetingToJoe("Joe"));
+
+        System.out.println(ic.calculateBonus(980_000));
+        System.out.println(ic.calculateBonus(1_180_000));
     }
 }
