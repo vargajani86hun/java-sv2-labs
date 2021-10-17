@@ -18,5 +18,21 @@ public class ArrayMain {
         for (int powers: powersOfTwo) {
             System.out.print(powers + " ");
         }
+        System.out.println();
+
+        boolean[] booleanArray = new boolean[6];
+        for (int i = 0; i < 6; i++) {
+            if (i  == 0) {
+                booleanArray[i] = false;
+            }
+            else {
+                booleanArray[i] = !booleanArray[i-1];
+            }
+        }
+
+        for (boolean booleanItem: booleanArray) {
+            System.out.print(booleanItem + " ");
+        }
+        System.out.println();
     }
 }
