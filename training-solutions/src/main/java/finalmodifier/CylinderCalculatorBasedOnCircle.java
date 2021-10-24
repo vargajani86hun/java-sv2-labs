@@ -6,6 +6,7 @@ public class CylinderCalculatorBasedOnCircle {
     }
 
     public double calculateSurfaceArea(double r, double h) {
-        return h * (new CircleCalculator()).calculatePerimeter(r);
+        CircleCalculator circle = new CircleCalculator();
+        return h * circle.calculatePerimeter(r) + 2 * circle.calculateArea(r);
     }
 }
