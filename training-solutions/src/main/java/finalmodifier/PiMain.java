@@ -17,5 +17,6 @@ public class PiMain {
                 cylinder2.calculateSurfaceArea(10, 5));
         System.out.println("Az 10 egyés sugarú kör alapú, 5 egység magas henger felszíne: " +
                 cylinder2.calculateVolume(10, 5));
+        System.out.println("A pi értéke: " + CircleCalculator.PI);
     }
 }
