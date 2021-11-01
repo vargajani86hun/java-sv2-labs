@@ -15,5 +15,9 @@ public class FirstEnumMain {
         System.out.println(Ocean.valueOf("INDIAN"));
         System.out.println(Ocean.valueOf("PACIFIC"));
         System.out.println(Ocean.valueOf("SOUTHERN"));
+
+        for (Football f : Football.values()) {
+            System.out.println(f.name());
+        }
     }
 }
