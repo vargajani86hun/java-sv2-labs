@@ -5,13 +5,13 @@ public enum SolarSystem {
     JUPITER(63), SATURNUS(62), URANUS(27),
     NEPTUNUS(13), PLUTO(5);
 
-    private final int value;
+    private final int numberOfMoons;
 
-    SolarSystem(int value) {
-        this.value=value;
+    SolarSystem(int numberOfMoons) {
+        this.numberOfMoons =numberOfMoons;
     }
 
-    public int getValue() {
-        return value;
+    public int getNumberOfMoons() {
+        return numberOfMoons;
     }
 }
