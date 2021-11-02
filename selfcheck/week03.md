@@ -11,34 +11,34 @@ a típusokról, az operátorokról, valamint a szöveges típusról.
 * [x] Bevezetés az attribútumok használatába gyakorlati feladat
 * [x] [Bevezetés a konstruktorok használatába videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709653-bevezetes-a-konstruktorok-hasznalataba)
 * [x] Bevezetés a konstruktorok használatába gyakorlati feladat
-* [ ] [Bevezetés a metódusok használatába videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709834-bevezetes-a-metodusok-hasznalataba)
-* [ ] Bevezetés a metódusok használatába gyakorlati feladat
-* [ ] [Referenciák videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709845-referenciak)
-* [ ] Referenciák gyakorlati feladat
-* [ ] [Kompozíció videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28188876-kompozicio)
-* [ ] Kompozíció gyakorlati feladat
-* [ ] [Kompozíció listával videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28188892-kompozicio-listaval)
-* [ ] Kompozíció listával gyakorlati feladat
+* [x] [Bevezetés a metódusok használatába videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709834-bevezetes-a-metodusok-hasznalataba)
+* [x] Bevezetés a metódusok használatába gyakorlati feladat
+* [x] [Referenciák videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709845-referenciak)
+* [x] Referenciák gyakorlati feladat
+* [x] [Kompozíció videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28188876-kompozicio)
+* [x] Kompozíció gyakorlati feladat
+* [x] [Kompozíció listával videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28188892-kompozicio-listaval)
+* [x] Kompozíció listával gyakorlati feladat
 
 ## Típusok és operátorok
 
-* [ ] [Literálok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709837-literalok)
-* [ ] Literálok gyakorlati feladat
-* [ ] [Egyszerű típusok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709846-egyszeru-tipusok)
-* [ ] Egyszerű típusok gyakorlati feladat
-* [ ] [Karakter videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/27993708-karakter)
-* [ ] Karakter gyakorlati feladat
-* [ ] [Felsorolásos típus videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709804-felsorolasos-tipus)
-* [ ] Felsorolásos típus gyakorlati feladat
-* [ ] [Operátorok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709858-operatorok)
-* [ ] Operátorok gyakorlati feladat 
-* [ ] Oszthatóság vizsgálata gyakorlati feladat [(Szöveges anyag itt)](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/texts/28278683-oszthatosag-vizsgalata)
-* [ ] [Egész és lebegőpontos számok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709854-egesz-es-lebegopontos-szamok)
-* [ ] Egész és lebegőpontos számok gyakorlati feladat
-* [ ] [Típuskonverzió videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709762-tipuskonverzio)
-* [ ] Típuskonverzió gyakorlati feladat
-* [ ] [Konverziók videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/27993726-konverziok)
-* [ ] Konverziók gyakorlati feladat
+* [x] [Literálok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709837-literalok)
+* [x] Literálok gyakorlati feladat
+* [x] [Egyszerű típusok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709846-egyszeru-tipusok)
+* [x] Egyszerű típusok gyakorlati feladat
+* [x] [Karakter videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/27993708-karakter)
+* [x] Karakter gyakorlati feladat
+* [x] [Felsorolásos típus videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709804-felsorolasos-tipus)
+* [x] Felsorolásos típus gyakorlati feladat
+* [x] [Operátorok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709858-operatorok)
+* [x] Operátorok gyakorlati feladat 
+* [x] Oszthatóság vizsgálata gyakorlati feladat [(Szöveges anyag itt)](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/texts/28278683-oszthatosag-vizsgalata)
+* [x] [Egész és lebegőpontos számok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709854-egesz-es-lebegopontos-szamok)
+* [x] Egész és lebegőpontos számok gyakorlati feladat
+* [x] [Típuskonverzió videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709762-tipuskonverzio)
+* [x] Típuskonverzió gyakorlati feladat
+* [x] [Konverziók videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/27993726-konverziok)
+* [x] Konverziók gyakorlati feladat
 
 ## Részletesen a szöveges típusról
 
@@ -63,6 +63,6 @@ a típusokról, az operátorokról, valamint a szöveges típusról.
 * [x] 2021-10-26 konzultáció részvétel/videó
 * [x] 2021-10-26 konzultáció gyakorlati feladat
 * [ ] 2021-10-28 konzultáció részvétel/videó
-* [ ] 2021-10-28 konzultáció gyakorlati feladat
+* [x] 2021-10-28 konzultáció gyakorlati feladat
 * [ ] 2021-10-29 konzultáció részvétel/videó
 * [ ] 2021-10-29 konzultáció gyakorlati feladat
