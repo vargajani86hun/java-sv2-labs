@@ -18,4 +18,9 @@ public class Conversion {
         }
         return byteNumbers;
     }
+
+    public int getFirstDecimal(double number) {
+        int intNumberPart = (int) number;
+        return (int) ((number - intNumberPart) * 10);
+    }
 }
