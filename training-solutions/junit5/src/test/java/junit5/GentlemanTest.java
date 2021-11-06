@@ -9,6 +9,10 @@ public class GentlemanTest {
     @Test
     public void testGreetings() {
         assertEquals("Hello John Doe", new Gentleman().sayHello("John Doe"));
+    }
 
+    @Test
+    public void testIncognito() {
+        assertEquals("Hello Anonymous", new Gentleman().sayHello(null));
     }
 }
