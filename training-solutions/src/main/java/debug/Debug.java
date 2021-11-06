@@ -23,5 +23,7 @@ public class Debug {
             numbers[2]++;
         }
         System.out.println(numbers[2]);
+
+        System.out.println(-38 % 3);
     }
 }
