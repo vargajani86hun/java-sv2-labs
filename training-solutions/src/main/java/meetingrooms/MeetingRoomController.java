@@ -10,7 +10,7 @@ public class MeetingRoomController {
         mrc.runMenu();
     }
 
-    private void readOffice() {
+    public void readOffice() {
         Scanner scr = new Scanner(System.in);
         System.out.println("Adja meg a tárgyaló nevét:");
         String name = scr.nextLine();
@@ -22,7 +22,7 @@ public class MeetingRoomController {
         office.addMeetingRoom(new MeetingRoom(name, length, width));
     }
 
-    private void printMenu() {
+    public void printMenu() {
         String menu = "```\n1. Tárgyaló rögzítése\n" +
             "2. Tárgyalók sorrendben\n" +
             "3. Tárgyalók visszafele sorrendben\n" +
@@ -35,7 +35,7 @@ public class MeetingRoomController {
         System.out.println(menu);
     }
 
-    private void runMenu() {
+    public void runMenu() {
         Scanner scr = new Scanner(System.in);
         int menuNumber;
         do {
