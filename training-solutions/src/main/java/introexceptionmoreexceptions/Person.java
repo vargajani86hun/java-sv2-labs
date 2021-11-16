@@ -1,7 +1,5 @@
 package introexceptionmoreexceptions;
 
-import java.util.Locale;
-
 public class Person {
     private String name;
     private int age;
