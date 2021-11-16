@@ -14,7 +14,7 @@ public class Message {
 
         List<String> anotherCodedMessage = Arrays.asList("69", "122", "32", "101",
                 "103", "121", "32", "104", "105", "98", "225", "115", "32",
-                "252", "122", "1O1", "110", "101", "116", "46");
+                "252", "122", "101", "110", "101", "116", "46");
         message = msg.messageDecoder(anotherCodedMessage);
 
         System.out.println(message);
