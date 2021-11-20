@@ -9,7 +9,7 @@ public class Patient {
     private int yearOfBirth;
 
     public Patient(String name, String socialSecurityNumber, int yearOfBirth) {
-        if ((name == null) || "".equals(name)){
+        if ((name == null) || (name.trim().length() == 0)){
             throw new IllegalArgumentException("Nem adott meg nevet!");
         }
         this.name = name;
