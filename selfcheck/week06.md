@@ -22,7 +22,7 @@ Ezen a héten a kivétel- és fájlkezelést fogjátok alapszinten megismerni.
 * [x] [Fájl beolvasása videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28177973-fajl-beolvasasa)
 * [x] Fájl beolvasása gyakorlati feladat
 * [x] [Kötelezően kezelendő kivétel a hívási láncban videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28177984-kotelezoen-kezelendo-kivetel-a-hivasi-lancban)
-* [ ] Kötelezően kezelendő kivétel a hívási láncban gyakorlati feladat
+* [x] Kötelezően kezelendő kivétel a hívási láncban gyakorlati feladat
 * [ ] [Kivétel becsomagolása videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28178010-kivetel-becsomagolasa)
 * [ ] Kivétel becsomagolása gyakorlati feladat
 * [ ] [Fájlbeolvasás tesztelése JUnit 4 használatával videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28178020-fajlbeolvasas-tesztelese-junit-4-hasznalataval)  
