@@ -16,6 +16,7 @@ public class Holiday {
             }
         }
         catch (IOException ioe) {
+            System.out.println("Unable to read file: " + ioe.getMessage());
             ioe.printStackTrace();
         }
     }

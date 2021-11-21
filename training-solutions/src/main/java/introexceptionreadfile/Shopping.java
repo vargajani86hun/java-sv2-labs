@@ -15,6 +15,7 @@ public class Shopping {
             }
         }
         catch (IOException ioe) {
+            System.out.println("Unable to read file: " + ioe.getMessage());
             ioe.printStackTrace();
         }
     }
