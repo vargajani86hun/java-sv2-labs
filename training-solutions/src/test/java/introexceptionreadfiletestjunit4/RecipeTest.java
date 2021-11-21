@@ -9,7 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThrows;
 
-public class TestRecipe {
+public class RecipeTest {
     Recipe recipe = new Recipe();
 
     @Test
