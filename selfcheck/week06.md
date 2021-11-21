@@ -17,7 +17,7 @@ Ezen a héten a kivétel- és fájlkezelést fogjátok alapszinten megismerni.
 * [x] [Kivétel eldobása videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28177790-kivetel-eldobasa)
 * [x] Kivétel eldobása gyakorlati feladat
 * [x] [Kivételkezelés tesztelése JUnit 4 használatával videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28177875-kivetelkezeles-tesztelese-junit-4-hasznalataval) 
-* [ ] [Kivételkezelés tesztelése JUnit 5 használatával videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28177887-kivetelkezeles-tesztelese-junit-5-hasznalataval)
+* [x] [Kivételkezelés tesztelése JUnit 5 használatával videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28177887-kivetelkezeles-tesztelese-junit-5-hasznalataval)
 * [ ] Kivételkezelés tesztelése JUnit 5 használatával gyakorlati feladat
 * [ ] [Fájl beolvasása videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28177973-fajl-beolvasasa)
 * [ ] Fájl beolvasása gyakorlati feladat
