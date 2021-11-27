@@ -15,6 +15,7 @@ class TownTest {
                 4290, 3880, 5130);
         Town town = new Town();
 
+        assertFalse(town.containsFewerHabitants(populations, 1500));
         assertFalse(town.containsFewerHabitants(populations, 2500));
         assertTrue(town.containsFewerHabitants(populations, 3500));
         assertTrue(town.containsFewerHabitants(populations, 5500));
