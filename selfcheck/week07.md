@@ -11,7 +11,7 @@ Ezen a héten nagyrészt ismétlés következik, néhány újabb ismerettel: a p
 * [x] Számlálás tétele gyakorlati feladat
 * [x] [Szélsőérték keresés tétele videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/16980670-szelsoertek-kereses-tetele)
 * [x] Szélsőérték keresés tétele gyakorlati feladat
-* [ ] [Eldöntés tétele videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/16980673-eldontes-tetele)
+* [x] [Eldöntés tétele videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/16980673-eldontes-tetele)
 * [ ] Eldöntés tétele gyakorlati feladat
 * [ ] [Szűrés videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/18066930-szures)
 * [ ] Szűrés gyakorlati feladat
