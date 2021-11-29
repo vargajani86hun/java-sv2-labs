@@ -15,7 +15,7 @@ Ezen a héten nagyrészt ismétlés következik, néhány újabb ismerettel: a p
 * [x] Eldöntés tétele gyakorlati feladat
 * [x] [Szűrés videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/18066930-szures)
 * [x] Szűrés gyakorlati feladat
-* [ ] [Transzformáció videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/18066933-transzformacio)
+* [x] [Transzformáció videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/18066933-transzformacio)
 * [ ] Transzformáció gyakorlati feladat
 * [ ] [Rekurzió videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/16980676-rekurzio)
 * [ ] Rekurzió gyakorlati feladat
