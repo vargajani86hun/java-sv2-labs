@@ -11,7 +11,7 @@ class CarTest {
         Car car = new Car("Volvo", "S40", 2012);
         assertEquals("Volvo", car.getBrand());
         assertEquals("S40", car.getType());
-        assertEquals(2012, car.getYearOfManufacture());
+        assertEquals(2012, car.getYearOfProduction());
     }
 
     @Test
@@ -32,6 +32,6 @@ class CarTest {
     void testCreateWithInvalidYear() {
         IllegalArgumentException iae = assertThrows(IllegalArgumentException.class,
                 () -> new Car("Ford", "S-Max", 2032));
-        assertEquals("Invalid year of manufacture!", iae.getMessage());
+        assertEquals("Year of production should not be in the future!", iae.getMessage());
     }
 }

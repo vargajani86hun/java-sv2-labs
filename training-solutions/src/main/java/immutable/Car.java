@@ -5,14 +5,14 @@ import java.time.LocalDate;
 public class Car {
     private final String brand;
     private final String type;
-    private final int yearOfManufacture;
+    private final int yearOfProduction;
 
-    public Car(String brand, String type, int yearOfManufacture) {
+    public Car(String brand, String type, int yearOfProduction) {
         isValidBrand(brand);
-        isValidYearOfManufacture(yearOfManufacture);
+        isValidYearOfProduction(yearOfProduction);
         this.brand = brand;
         this.type = type;
-        this.yearOfManufacture = yearOfManufacture;
+        this.yearOfProduction = yearOfProduction;
     }
 
     private boolean isValidBrand(String brand) {
@@ -22,9 +22,9 @@ public class Car {
         return true;
     }
 
-    private boolean isValidYearOfManufacture(int yearOfManufacture) {
-        if (yearOfManufacture > LocalDate.now().getYear()) {
-            throw new IllegalArgumentException("Invalid year of manufacture!");
+    private boolean isValidYearOfProduction(int yearOfProduction) {
+        if (yearOfProduction > LocalDate.now().getYear()) {
+            throw new IllegalArgumentException("Year of production should not be in the future!");
         }
         return true;
     }
@@ -37,7 +37,7 @@ public class Car {
         return type;
     }
 
-    public int getYearOfManufacture() {
-        return yearOfManufacture;
+    public int getYearOfProduction() {
+        return yearOfProduction;
     }
 }
