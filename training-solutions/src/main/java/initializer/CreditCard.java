@@ -26,7 +26,7 @@ public class CreditCard {
     }
 
     public CreditCard(long balance) {
-        this.balance = balance;
+        this(balance, Currency.HUF);
     }
 
     public boolean payment(long amount, Currency currency) {
