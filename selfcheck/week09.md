@@ -37,7 +37,7 @@ fogtok megismerkedni.
 * [x] 2021-12-06 konzultáció gyakorlati feladat
 * [x] 2021-12-07 konzultáció részvétel/videó
 * [x] 2021-12-07 konzultáció gyakorlati feladat
-* [ ] 2021-12-09 konzultáció részvétel/videó
-* [ ] 2021-12-09 konzultáció gyakorlati feladat
-* [ ] 2021-12-10 konzultáció részvétel/videó
-* [ ] 2021-12-10 konzultáció gyakorlati feladat
+* [x] 2021-12-09 konzultáció részvétel/videó
+* [x] 2021-12-09 konzultáció gyakorlati feladat
+* [x] 2021-12-10 konzultáció részvétel/videó
+* [x] 2021-12-10 konzultáció gyakorlati feladat
