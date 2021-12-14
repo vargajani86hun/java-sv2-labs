@@ -5,7 +5,7 @@ import java.util.List;
 
 public class SimpleTasks implements Runnable {
 
-    private List<String> tasks = new ArrayList<>();
+    private List<String> tasks;
 
     public SimpleTasks(List<String> tasks) {
         this.tasks = tasks;
