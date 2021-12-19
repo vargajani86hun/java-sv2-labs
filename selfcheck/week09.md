@@ -15,7 +15,7 @@ fogtok megismerkedni.
 * [x] Interfészek és az öröklődés viszonya gyakorlati feladat
 * [x] [Default interfész metódusok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593845-default-interfesz-metodusok)
 * [x] Default interfész metódusok gyakorlati feladat
-* [ ] [Statikus interfész metódusok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593855-statikus-interfesz-metodusok)
+* [x] [Statikus interfész metódusok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593855-statikus-interfesz-metodusok)
 * [ ] Statikus interfész metódusok gyakorlati feladat
 * [ ] [Absztrakt metódusok implementálása felsorolásos típusokban videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593878-absztrakt-metodusok-implementalasa-felsorolasos-tipusokban)
 * [ ] Absztrakt metódusok implementálása felsorolásos típusokban gyakorlati feladat
