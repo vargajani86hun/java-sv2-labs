@@ -24,7 +24,7 @@ fogtok megismerkedni.
   
 ## Haladó OO elvek
 
-* [ ] [Polimorfizmus videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593935-polimorfizmus)
+* [x] [Polimorfizmus videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593935-polimorfizmus)
 * [ ] Polimorfizmus gyakorlati feladat
 * [ ] [Dinamikus kötés videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593943-dinamikus-kotes)
 * [ ] Dinamikus kötés gyakorlati feladat
