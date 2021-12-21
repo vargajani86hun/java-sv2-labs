@@ -20,11 +20,11 @@ public class Fleet {
         waitingPeople = passengers;
 
         for (Ship actual : ships) {
-            if (actual instanceof CanCarryGoods && waitingCargo > 0) {
-                waitingCargo = ((CanCarryGoods) actual).loadCargo(waitingCargo);
+            if (actual instanceof CanCarryGoods ccgShip && waitingCargo > 0) {
+                waitingCargo = ccgShip.loadCargo(waitingCargo);
             }
-            if (actual instanceof CanCarryPassengers && waitingPeople > 0) {
-                waitingPeople = ((CanCarryPassengers) actual).loadPassenger(waitingPeople);
+            if (actual instanceof CanCarryPassengers ccpShip && waitingPeople > 0) {
+                waitingPeople = ccpShip.loadPassenger(waitingPeople);
             }
         }
     }
