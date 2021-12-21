@@ -12,9 +12,21 @@ public class Fleet {
     }
 
     public void loadShip(int passengers, int cargoWeight) {
-        loadCanCarryGoodsShips(getCanCarryGoodsShips(), cargoWeight);
+        if (ships.isEmpty()) {
+            throw new IllegalStateException("There are no ships!");
+        }
 
-        loadCanCarryPassengersShips(getCanCarryPassengersShips(), passengers);
+        waitingCargo = cargoWeight;
+        waitingPeople = passengers;
+
+        for (Ship actual : ships) {
+            if (actual instanceof CanCarryGoods && waitingCargo > 0) {
+                waitingCargo = ((CanCarryGoods) actual).loadCargo(waitingCargo);
+            }
+            if (actual instanceof CanCarryPassengers && waitingPeople > 0) {
+                waitingPeople = ((CanCarryPassengers) actual).loadPassenger(waitingPeople);
+            }
+        }
     }
 
     public int getWaitingPeople() {
@@ -23,59 +35,5 @@ public class Fleet {
 
     public int getWaitingCargo() {
         return waitingCargo;
-    }
-
-    private List<CanCarryGoods> getCanCarryGoodsShips() {
-        if (ships.isEmpty()) {
-            throw new IllegalStateException("There are no ships!");
-        }
-
-        List<CanCarryGoods> results = new ArrayList<>();
-        for (Ship actual : ships) {
-            if (actual instanceof CanCarryGoods) {
-                results.add((CanCarryGoods) actual);
-            }
-        }
-        return results;
-    }
-
-    private void loadCanCarryGoodsShips(List<CanCarryGoods> canCarryGoodsShips,
-                                        int cargoWeight) {
-        waitingCargo = cargoWeight;
-        for (CanCarryGoods actual : canCarryGoodsShips) {
-            if (waitingCargo > 0) {
-                waitingCargo = actual.loadCargo(waitingCargo);
-            }
-            else {
-                return;
-            }
-        }
-    }
-
-    private List<CanCarryPassengers> getCanCarryPassengersShips() {
-        if (ships.isEmpty()) {
-            throw new IllegalStateException("There are no ships!");
-        }
-
-        List<CanCarryPassengers> results = new ArrayList<>();
-        for (Ship actual : ships) {
-            if (actual instanceof CanCarryPassengers) {
-                results.add((CanCarryPassengers) actual);
-            }
-        }
-        return results;
-    }
-
-    private void loadCanCarryPassengersShips(
-            List<CanCarryPassengers> canCarryPassengersShips, int passengers) {
-        waitingPeople = passengers;
-        for (CanCarryPassengers actual : canCarryPassengersShips) {
-            if (waitingPeople > 0) {
-                waitingPeople = actual.loadPassenger(waitingPeople);
-            }
-            else {
-                return;
-            }
-        }
     }
 }
