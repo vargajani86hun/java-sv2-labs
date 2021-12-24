@@ -2,6 +2,9 @@ package schoolrecords;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import static java.util.Locale.UK;
 
 public class Student {
     private String name;
@@ -22,7 +25,9 @@ public class Student {
     }
 
     public double calculateAverage() {
-        return getSumOfMarks() / (double) marks.size();
+        int sumOfMarks = getSumOfMarks();
+        return Double.parseDouble(String.format(UK, "%.2f",
+                sumOfMarks == 0 ? 0 : (sumOfMarks / (double) marks.size())));
     }
 
     public double calculateSubjectAverage(Subject subject) {
@@ -34,7 +39,7 @@ public class Student {
                 pcs++;
             }
         }
-        return sum / (double) pcs;
+        return sum == 0 ? 0 : (sum / (double) pcs);
     }
 
     public String getName() {
@@ -42,19 +47,34 @@ public class Student {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return name.equals(student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(name).append(": ");
+        sb.append(name).append(" marks: ");
         Subject subject = marks.get(0).getSubject();
-        boolean isFirst = true;
+        sb.append(subject.getName()).append(": ");
+        boolean firstMark = true;
         for (Mark actual : sortMarksBySubject()) {
             if (!subject.getName().equals(actual.getSubject().getName())) {
+                sb.append(";\n");
                 subject = actual.getSubject();
                 sb.append(subject.getName()).append(": ");
             }
             sb.append(actual.toString());
-            if (isFirst) {
-                isFirst = false;
+            if (firstMark) {
+                firstMark = false;
             }
             else {
                 sb.append(", ");

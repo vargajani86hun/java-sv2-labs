@@ -1,11 +1,19 @@
 package schoolrecords;
 
 public class StudyResultByName {
+    private String studentName;
+    private double studentAverage;
+
+    public StudyResultByName(String studentName, double studentAverage) {
+        this.studentName = studentName;
+        this.studentAverage = studentAverage;
+    }
+
     public String getStudentName() {
-        return null;
+        return studentName;
     }
 
     public double getStudyAverage() {
-        return 0;
+        return studentAverage;
     }
 }
