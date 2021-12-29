@@ -1,5 +1,6 @@
 package schoolrecords;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -39,24 +40,25 @@ public class SchoolRecordsController {
         int menu;
         do {
             System.out.println(printMenu());
-            System.out.println(": ");
+            System.out.print(": ");
             menu = scr.nextInt();
             runMenu(menu);
         } while (menu != 11);
     }
 
     private String printMenu() {
-        return "1. Diákok nevének listázása\n" +
-                "2. Diák név alapján keresése\n" +
-                "3. Diák létrehozása\n" +
-                "4. Diák név alapján törlése\n" +
-                "5. Diák feleltetése\n" +
-                "6. Osztályátlag kiszámolása\n" +
-                "7. Tantárgyi átlag kiszámolása\n" +
-                "8. Diákok átlagának megjelenítése\n" +
-                "9. Diák átlagának kiírása\n" +
-                "10. Diák tantárgyhoz tartozó átlagának kiírása\n" +
-                "11. Kilépés";
+        return """
+                1. Diákok nevének listázása
+                2. Diák név alapján keresése
+                3. Diák létrehozása
+                4. Diák név alapján törlése
+                5. Diák feleltetése
+                6. Osztályátlag kiszámolása
+                7. Tantárgyi átlag kiszámolása
+                8. Diákok átlagának megjelenítése
+                9. Diák átlagának kiírása
+                10. Diák tantárgyhoz tartozó átlagának kiírása
+                11. Kilépés""";
     }
 
     private void runMenu(int menu) {
@@ -88,7 +90,8 @@ public class SchoolRecordsController {
                 waitReaction();
                 break;
             case 6: //Osztályátlag kiszámolása
-                System.out.println(firstA.calculateClassAverage());
+                System.out.println("A(z) " + firstA.getClassName() +
+                        " osztály átlaga: " + firstA.calculateClassAverage());
                 waitReaction();
                 break;
             case 7: //Tantárgyi átlag kiszámolása
@@ -116,25 +119,33 @@ public class SchoolRecordsController {
         return firstA.findStudentByName(name);
     }
 
-    private boolean addStudent() {
+    private void addStudent() {
         System.out.println("Adja meg a felvenni kívánt diák nevét: ");
         String name = new Scanner(System.in).nextLine();
-        return firstA.addStudent(new Student(name));
+        if (firstA.addStudent(new Student(name))) {
+            System.out.println(name + " hozzá lett adva az osztályhoz.");
+        }
+        else {
+            System.out.println(name + " hozzáadsa az osztályhoz nem történt meg.");
+        }
     }
 
-    private boolean removeStudent() {
+    private void removeStudent() {
         System.out.println("Adja meg az eltávolítani kívánt diák nevét: ");
         String name = new Scanner(System.in).nextLine();
 
         try {
             Student removing = firstA.findStudentByName(name);
-            return firstA.removeStudent(removing);
+            if (firstA.removeStudent(removing)) {
+                System.out.println(name + " eltávolítása az osztály névsorból megtörtént!");
+            }
+            else {
+                System.out.println(name + " eltávolítása nem volt lehetséges.");
+            }
         } catch (IllegalStateException ise) {
             System.out.println("There is no child in this class! " + ise.getMessage());
-            return false;
         } catch (IllegalArgumentException iae) {
             System.out.println(iae.getMessage());
-            return false;
         }
     }
 
@@ -150,7 +161,8 @@ public class SchoolRecordsController {
             System.out.println("Adja meg az érdemjegyet: ");
             String mark = scr.nextLine();
             if (tutor.tutorTeachingSubject(subject)) {
-                sucked.grading(new Mark(parseMarkType(mark), subject, tutor));
+                sucked.grading(new Mark(MarkType.parseMarkType(mark), subject, tutor));
+                System.out.println("Érdemjegy beírva!");
             }
             else {
                 System.out.println("Ezt a tárgyat (" + subject.getName() + ") nem " + tutor.getName() +
@@ -162,34 +174,6 @@ public class SchoolRecordsController {
         }
         catch (IllegalArgumentException iae) {
             System.out.println(iae.getMessage());
-        }
-    }
-
-    private MarkType parseMarkType(String line) {
-        if (line.length() == 1) {
-            char first = line.charAt(0);
-            switch (first) {
-                case '5':
-                case 'A':
-                    return MarkType.A;
-                case '4':
-                case 'B':
-                    return MarkType.B;
-                case '3':
-                case 'C':
-                    return MarkType.C;
-                case '2':
-                case 'D':
-                    return MarkType.D;
-                case '1':
-                case 'F':
-                    return MarkType.F;
-                default:
-                    throw new IllegalArgumentException("Not a valid mark!");
-            }
-        }
-        else {
-            throw new IllegalArgumentException("Not a valid mark!");
         }
     }
 
