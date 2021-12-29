@@ -28,4 +28,32 @@ public enum MarkType {
     public String toString() {
         return rating + "(" + value + ")";
     }
+
+    public static MarkType parseMarkType(String line) {
+        if (line.length() == 1) {
+            char first = line.charAt(0);
+            switch (first) {
+                case '5':
+                case 'A':
+                    return MarkType.A;
+                case '4':
+                case 'B':
+                    return MarkType.B;
+                case '3':
+                case 'C':
+                    return MarkType.C;
+                case '2':
+                case 'D':
+                    return MarkType.D;
+                case '1':
+                case 'F':
+                    return MarkType.F;
+                default:
+                    throw new IllegalArgumentException("Not a valid mark! Use 1-5, or A-D and F.");
+            }
+        }
+        else {
+            throw new IllegalArgumentException("Not a valid mark! Use 1-5, or A-D and F.");
+        }
+    }
 }
