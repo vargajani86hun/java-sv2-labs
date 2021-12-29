@@ -199,7 +199,8 @@ public class SchoolRecordsController {
         System.out.println("Adja meg a tantárgy nevét: ");
         String name = new Scanner(System.in).nextLine();
         try {
-            System.out.println(firstA.calculateClassAverageBySubject(getSubjectByName(name)));
+            System.out.println("A(z) " + firstA.getClassName() + " átlaga a(z) " + name +
+                    " tárgyból: " + firstA.calculateClassAverageBySubject(getSubjectByName(name)));
         }
         catch (IllegalArgumentException iae) {
             System.out.println(iae.getMessage());
@@ -211,7 +212,7 @@ public class SchoolRecordsController {
         String name = new Scanner(System.in).nextLine();
         try {
             Student student = firstA.findStudentByName(name);
-            System.out.println(student.getName() + ": " + student.calculateAverage());
+            System.out.println(student.getName() + " összátlaga: " + student.calculateAverage());
         }
         catch (IllegalStateException ise) {
             System.out.println("There is no student in this class! " + ise.getMessage());
