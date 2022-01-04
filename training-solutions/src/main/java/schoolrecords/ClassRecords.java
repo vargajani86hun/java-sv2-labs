@@ -2,7 +2,6 @@ package schoolrecords;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 
 public class ClassRecords {
@@ -41,7 +40,7 @@ public class ClassRecords {
         if (classSum == 0) {
             throw new ArithmeticException("No marks present, average calculation aborted!");
         }
-        return Double.parseDouble(String.format(Locale.UK, "%.2f",classSum / students.size()));
+        return ((long)(classSum * 100. / students.size())) / 100.;
     }
 
     public double calculateClassAverageBySubject(Subject subject) {
@@ -54,17 +53,15 @@ public class ClassRecords {
                 studentsGetMarksFromSubject++;
             }
         }
-        return Double.parseDouble(String.format(Locale.UK, "%.2f",
-                (classSumBySubject / studentsGetMarksFromSubject)));
+        return studentsGetMarksFromSubject == 0 ? 0 :
+                ((long)(classSumBySubject * 100. / studentsGetMarksFromSubject)) / 100.;
     }
 
     public Student findStudentByName(String studentName) {
         if (studentName.isEmpty()) {
             throw new IllegalArgumentException("Student name must not be empty!");
         }
-        if (students.isEmpty()) {
-            throw new IllegalStateException("No students to search!");
-        }
+        checkStudentsToSearch();
         for (Student actual : students) {
             if (actual.getName().equals(studentName)) {
                 return actual;
@@ -81,9 +78,7 @@ public class ClassRecords {
     }
 
     public List<StudyResultByName> listStudyResults() {
-        if (students.isEmpty()) {
-            throw new IllegalStateException("No student in the class!");
-        }
+        checkStudentsToSearch();
         List<StudyResultByName> results = new ArrayList<>();
         for (Student actual : students) {
             results.add(new StudyResultByName(actual.getName(), actual.calculateAverage()));
@@ -92,9 +87,7 @@ public class ClassRecords {
     }
 
     public String listStudentNames() {
-        if (students.isEmpty()) {
-            throw new IllegalStateException("No student in the class!");
-        }
+        checkStudentsToSearch();
         StringBuilder sb = new StringBuilder();
         boolean first = true;
         for (Student actual : students) {
@@ -107,5 +100,11 @@ public class ClassRecords {
             sb.append(actual.getName());
         }
         return sb.toString();
+    }
+
+    private void checkStudentsToSearch() {
+        if (students.isEmpty()) {
+            throw new IllegalStateException("No students to search!");
+        }
     }
 }

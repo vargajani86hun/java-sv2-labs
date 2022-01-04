@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static java.util.Locale.UK;
-
 public class Student {
     private String name;
     private List<Mark> marks = new ArrayList<>();
@@ -26,8 +24,7 @@ public class Student {
 
     public double calculateAverage() {
         int sumOfMarks = getSumOfMarks();
-        return Double.parseDouble(String.format(UK, "%.2f",
-                sumOfMarks == 0 ? 0 : (sumOfMarks / (double) marks.size())));
+        return sumOfMarks == 0 ? 0 : (((long)(sumOfMarks * 100. / marks.size())) / 100.);
     }
 
     public double calculateSubjectAverage(Subject subject) {
@@ -39,7 +36,7 @@ public class Student {
                 pcs++;
             }
         }
-        return sum == 0 ? 0 : (sum / (double) pcs);
+        return sum == 0 ? 0 : (((long)(sum * 100. / pcs)) / 100.);
     }
 
     public String getName() {
@@ -72,7 +69,7 @@ public class Student {
                 subject = actual.getSubject();
                 sb.append(subject.getName()).append(": ");
             }
-            sb.append(actual.toString());
+            sb.append(actual);
             if (firstMark) {
                 firstMark = false;
             }
