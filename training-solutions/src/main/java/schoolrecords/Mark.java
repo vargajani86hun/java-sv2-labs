@@ -6,18 +6,16 @@ public class Mark {
     private Tutor tutor;
 
     public Mark(MarkType markType, Subject subject, Tutor tutor) {
-        if (subject == null || tutor == null) {
-            throw new NullPointerException("Both subject and tutor must be provided!");
-        }
+        checkEmptySubject(subject);
+        checkEmptyTutor(tutor);
         this.markType = markType;
         this.subject = subject;
         this.tutor = tutor;
     }
 
     public Mark(String markType, Subject subject, Tutor tutor) {
-        if (subject == null || tutor == null) {
-            throw new NullPointerException("Both subject and tutor must be provided!");
-        }
+        checkEmptySubject(subject);
+        checkEmptyTutor(tutor);
         this.markType = MarkType.valueOf(markType);
         this.subject = subject;
         this.tutor = tutor;
@@ -38,5 +36,17 @@ public class Mark {
 
     public Tutor getTutor() {
         return tutor;
+    }
+
+    private void checkEmptySubject(Subject subject) {
+        if (subject == null) {
+            throw new NullPointerException("Both subject and tutor must be provided!");
+        }
+    }
+
+    private void checkEmptyTutor(Tutor tutor) {
+        if (tutor == null) {
+            throw new NullPointerException("Both subject and tutor must be provided!");
+        }
     }
 }
