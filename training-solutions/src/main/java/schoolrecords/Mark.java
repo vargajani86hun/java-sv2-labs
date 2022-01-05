@@ -14,11 +14,7 @@ public class Mark {
     }
 
     public Mark(String markType, Subject subject, Tutor tutor) {
-        checkEmptySubject(subject);
-        checkEmptyTutor(tutor);
-        this.markType = MarkType.valueOf(markType);
-        this.subject = subject;
-        this.tutor = tutor;
+        this(MarkType.valueOf(markType), subject, tutor);
     }
 
     @Override
