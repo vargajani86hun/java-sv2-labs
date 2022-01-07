@@ -7,7 +7,7 @@ Ezen a héten a kivételkezelésről szerzett ismereteiteket fogjátok bővíten
 * [x] [Kivételkezelés videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29772378-kivetelkezeles)
 * [x] Kivételkezelés gyakorlati feladat
 * [x] [Saját kivétel videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29772385-sajat-kivetel)
-* [ ] Saját kivétel gyakorlati feladat
+* [x] Saját kivétel gyakorlati feladat
 * [ ] [Multi catch videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29772388-multi-catch)
 * [ ] Multi catch gyakorlati feladat
 * [ ] [Try-With-Resources szerkezet videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29772391-try-with-resources-szerkezet)
