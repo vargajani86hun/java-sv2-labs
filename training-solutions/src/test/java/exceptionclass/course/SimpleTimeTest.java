@@ -12,7 +12,7 @@ class SimpleTimeTest {
         int hour = 24;
         int minute = 1;
 
-        InvalideTimeException itex = assertThrows(InvalideTimeException.class, () -> new SimpleTime(hour, minute));
+        InvalidTimeException itex = assertThrows(InvalidTimeException.class, () -> new SimpleTime(hour, minute));
         assertEquals("Hour is invalid (0-23)", itex.getMessage());
     }
 
@@ -21,7 +21,7 @@ class SimpleTimeTest {
         int hour = 1;
         int minute = 60;
 
-        InvalideTimeException itex = assertThrows(InvalideTimeException.class, () -> new SimpleTime(hour, minute));
+        InvalidTimeException itex = assertThrows(InvalidTimeException.class, () -> new SimpleTime(hour, minute));
         assertEquals("Minute is invalid (0-59)", itex.getMessage());
 
     }
@@ -40,7 +40,7 @@ class SimpleTimeTest {
     void testNullParameterShouldThrowException() {
         String timeString = null;
 
-        InvalideTimeException itex = assertThrows(InvalideTimeException.class, () -> new SimpleTime(timeString));
+        InvalidTimeException itex = assertThrows(InvalidTimeException.class, () -> new SimpleTime(timeString));
         assertEquals("Time is null", itex.getMessage());
     }
 
@@ -48,39 +48,39 @@ class SimpleTimeTest {
     void testInvalidLengthShouldThrowException() {
         String timeString = "aa";
 
-        InvalideTimeException itex = assertThrows(InvalideTimeException.class, () -> new SimpleTime(timeString));
+        InvalidTimeException itex = assertThrows(InvalidTimeException.class, () -> new SimpleTime(timeString));
         assertEquals("Time is not hh:mm", itex.getMessage());
     }
 
     @Test
-    void testInvalideDelimiterShouldThrowException() {
+    void testInvalidDelimiterShouldThrowException() {
         String timeString = "12,23";
 
-        InvalideTimeException itex = assertThrows(InvalideTimeException.class, () -> new SimpleTime(timeString));
+        InvalidTimeException itex = assertThrows(InvalidTimeException.class, () -> new SimpleTime(timeString));
         assertEquals("Time is not hh:mm", itex.getMessage());
     }
 
     @Test
-    void testInvalideNumberShouldThrowException() {
+    void testInvalidNumberShouldThrowException() {
         String timeString = "a1:23";
 
-        InvalideTimeException itex = assertThrows(InvalideTimeException.class, () -> new SimpleTime(timeString));
+        InvalidTimeException itex = assertThrows(InvalidTimeException.class, () -> new SimpleTime(timeString));
         assertEquals("Time is not hh:mm", itex.getMessage());
     }
 
     @Test
-    void testInvalideHourShouldThrowException() {
+    void testInvalidHourInTextShouldThrowException() {
         String timeString = "24:23";
 
-        InvalideTimeException itex = assertThrows(InvalideTimeException.class, () -> new SimpleTime(timeString));
+        InvalidTimeException itex = assertThrows(InvalidTimeException.class, () -> new SimpleTime(timeString));
         assertEquals("Hour is invalid (0-23)", itex.getMessage());
     }
 
     @Test
-    void testInvalideMinuteShouldThrowException() {
+    void testInvalidMinuteInTextShouldThrowException() {
         String timeString = "12:60";
 
-        InvalideTimeException itex = assertThrows(InvalideTimeException.class, () -> new SimpleTime(timeString));
+        InvalidTimeException itex = assertThrows(InvalidTimeException.class, () -> new SimpleTime(timeString));
         assertEquals("Minute is invalid (0-59)", itex.getMessage());
     }
 

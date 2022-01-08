@@ -40,16 +40,16 @@ public class SimpleTime {
 
     private void checkTimeString(String timeString) {
         if (timeString == null) {
-            throw new InvalideTimeException("Time is null");
+            throw new InvalidTimeException("Time is null");
         }
         if (timeString.length() != 5 || !timeString.contains(":")) {
-            throw new InvalideTimeException(STANDARD_EXCEPTION_MESSAGE);
+            throw new InvalidTimeException(STANDARD_EXCEPTION_MESSAGE);
         }
     }
 
     private void checkHour(int hour) {
         if (hour < 0 || hour > 23) {
-            throw new InvalideTimeException("Hour is invalid (0-23)");
+            throw new InvalidTimeException("Hour is invalid (0-23)");
         }
     }
 
@@ -58,13 +58,13 @@ public class SimpleTime {
             checkHour(Integer.parseInt(hour));
         }
         catch (NumberFormatException nfe) {
-            throw new InvalideTimeException(STANDARD_EXCEPTION_MESSAGE);
+            throw new InvalidTimeException(STANDARD_EXCEPTION_MESSAGE);
         }
     }
 
     private void checkMinute(int minute) {
         if (minute < 0 || minute > 59) {
-            throw new InvalideTimeException("Minute is invalid (0-59)");
+            throw new InvalidTimeException("Minute is invalid (0-59)");
         }
     }
 
@@ -73,7 +73,7 @@ public class SimpleTime {
             checkMinute(Integer.parseInt(minute));
         }
         catch (NumberFormatException nfe) {
-            throw new InvalideTimeException(STANDARD_EXCEPTION_MESSAGE);
+            throw new InvalidTimeException(STANDARD_EXCEPTION_MESSAGE);
         }
     }
 }
