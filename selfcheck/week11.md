@@ -11,7 +11,7 @@ Ezen a héten a kivételkezelésről szerzett ismereteiteket fogjátok bővíten
 * [x] [Multi catch videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29772388-multi-catch)
 * [x] Multi catch gyakorlati feladat
 * [x] [Try-With-Resources szerkezet videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29772391-try-with-resources-szerkezet)
-* [ ] Try-With-Resources szerkezet gyakorlati feladat
+* [x] Try-With-Resources szerkezet gyakorlati feladat
 
 ## Konzultációk
 
