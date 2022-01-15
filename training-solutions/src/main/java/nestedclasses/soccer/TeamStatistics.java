@@ -1,20 +1,20 @@
 package nestedclasses.soccer;
 
+import statemachine.seatheater.SeatHeaterState;
+
 import java.util.Objects;
 
 public class TeamStatistics {
-    private String teamName;
-    private static class seasonStatistics {
+    private static class SeasonStatistics {
         private int played;
         private int won, tied, lost;
         private int goalsFor, goalsAgainst;
         private int points;
-
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
-            if (!(o instanceof seasonStatistics)) return false;
-            seasonStatistics that = (seasonStatistics) o;
+            if (!(o instanceof SeasonStatistics)) return false;
+            SeasonStatistics that = (SeasonStatistics) o;
             return played == that.played && won == that.won && tied == that.tied && lost == that.lost && goalsFor == that.goalsFor && goalsAgainst == that.goalsAgainst && points == that.points;
         }
 
@@ -22,38 +22,45 @@ public class TeamStatistics {
         public int hashCode() {
             return Objects.hash(played, won, tied, lost, goalsFor, goalsAgainst, points);
         }
+
     }
-    private seasonStatistics seasonStatistics;
+    private String teamName;
+    private SeasonStatistics seasonStatistics;
+
+    public TeamStatistics(String teamName) {
+        this.teamName = teamName;
+        seasonStatistics = new SeasonStatistics();
+    }
 
     public String getTeamName() {
         return teamName;
     }
 
-    public int getPlayedInSeason() {
+    public int getPlayed() {
         return seasonStatistics.played;
     }
 
-    public int getWonInSeason() {
+    public int getWon() {
         return seasonStatistics.won;
     }
 
-    public int getTiedInSeason() {
+    public int getTied() {
         return seasonStatistics.tied;
     }
 
-    public int getLostInSeason() {
+    public int getLost() {
         return seasonStatistics.lost;
     }
 
-    public int getGoalsForInSeason() {
+    public int getGoalsFor() {
         return seasonStatistics.goalsFor;
     }
 
-    public int getGoalsAgainstInSeason() {
+    public int getGoalsAgainst() {
         return seasonStatistics.goalsAgainst;
     }
 
-    public int getPointsInSeason() {
+    public int getPoints() {
         return seasonStatistics.points;
     }
 
@@ -62,12 +69,12 @@ public class TeamStatistics {
         if (this == o) return true;
         if (!(o instanceof TeamStatistics)) return false;
         TeamStatistics that = (TeamStatistics) o;
-        return Objects.equals(teamName, that.teamName) && Objects.equals(seasonStatistics, that.seasonStatistics);
+        return Objects.equals(teamName, that.teamName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(teamName, seasonStatistics);
+        return Objects.hash(teamName);
     }
 
     public void played(int plusGoalsFor, int plusGoalsAgainst) {
@@ -77,7 +84,7 @@ public class TeamStatistics {
         if (plusGoalsFor == plusGoalsAgainst) {
             seasonStatistics.tied++;
             seasonStatistics.points++;
-        } else if (plusGoalsFor > plusGoalsAgainst) {
+        } else if (plusGoalsFor < plusGoalsAgainst) {
             seasonStatistics.lost++;
         } else {
             seasonStatistics.won++;
