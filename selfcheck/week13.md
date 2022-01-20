@@ -4,10 +4,10 @@ Ezen a héten a lambda kifejezések és a streamek használatával fogtok részl
 
 ## Lambda kifejezések és streamek - kötelező
 
-* [ ] [Bevezetés a lambda kifejezések használatába videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/31314536-bevezetes-a-lambda-kifejezesek-hasznalataba)
-* [ ] [Bevezetés a lambda kifejezések használatába - gyakorlat videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/31315397-bevezetes-a-lambda-kifejezesek-hasznalataba-gyakorlat)
-* [ ] Bevezetés a lambda kifejezések használatába gyakorlati feladat
-* [ ] [Bevezetés az Optional osztály használatába videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/31319354-bevezetes-az-optional-osztaly-hasznalataba)
+* [x] [Bevezetés a lambda kifejezések használatába videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/31314536-bevezetes-a-lambda-kifejezesek-hasznalataba)
+* [x] [Bevezetés a lambda kifejezések használatába - gyakorlat videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/31315397-bevezetes-a-lambda-kifejezesek-hasznalataba-gyakorlat)
+* [x] Bevezetés a lambda kifejezések használatába gyakorlati feladat
+* [x] [Bevezetés az Optional osztály használatába videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/31319354-bevezetes-az-optional-osztaly-hasznalataba)
 * [ ] Bevezetés az Optional osztály használatába gyakorlati feladat
 * [ ] [Bevezetés a streamek használatába videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/31315582-bevezetes-a-streamek-hasznalataba)
 * [ ] [Bevezezés a streamek használatába - gyakorlat - komplex példa videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/31315951-bevezezes-a-streamek-hasznalataba-gyakorlat-komplex-pelda)
@@ -22,7 +22,7 @@ Ezekkel a leckékkel tovább mélyíthetitek a lambda kifejezésekkel és a stre
 Akinek a bevezető leckék után hiányérzete maradt vagy szeretne tovább tanulni a haladó tanfolyamon, az
 mindenképpen végezze el ezeket a leckéket is.
 
-* [ ] [Lambda kifejezések videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/16981999-lambda-kifejezesek)
+* [x] [Lambda kifejezések videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/16981999-lambda-kifejezesek)
 * [ ] Lambda kifejezések gyakorlati feladat
 * [ ] [Az Optional osztály használata videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/16982013-az-optional-osztaly-hasznalata)
 * [ ] Az Optional osztály használata gyakorlati feladat
