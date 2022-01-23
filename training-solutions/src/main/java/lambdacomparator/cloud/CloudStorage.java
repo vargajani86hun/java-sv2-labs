@@ -45,8 +45,7 @@ public class CloudStorage implements Comparable<CloudStorage> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof CloudStorage)) return false;
-        CloudStorage that = (CloudStorage) o;
+        if (!(o instanceof CloudStorage that)) return false;
         return space == that.space && Double.compare(that.price, price) == 0 && period == that.period;
     }
 
