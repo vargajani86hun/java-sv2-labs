@@ -46,7 +46,25 @@ public class Track {
     }
 
     public double getRectangleArea() {
-        return 0;
+        double minLongitude = trackPoints.stream()
+                .mapToDouble(t -> t.getCoordinate().getLongitude())
+                .min().orElse(0);
+        double maxLongitude = trackPoints.stream()
+                .mapToDouble(t -> t.getCoordinate().getLongitude())
+                .max().orElse(0);
+        double minLatitude = trackPoints.stream()
+                .mapToDouble(t -> t.getCoordinate().getLatitude())
+                .min().orElse(0);
+        double maxLatitude = trackPoints.stream()
+                .mapToDouble(t -> t.getCoordinate().getLatitude())
+                .max().orElse(0);
+        Coordinate coordinateMinMin = new Coordinate(minLatitude, minLongitude);
+        Coordinate coordinateMinMax = new Coordinate(minLatitude, maxLongitude);
+        Coordinate coordinateMaxMin = new Coordinate(maxLatitude, minLongitude);
+        Coordinate coordinateMaxMax = new Coordinate(maxLatitude, maxLongitude);
+        double distanceA = coordinateMinMin.getDistanceFrom(coordinateMaxMin);
+        double distanceB = coordinateMinMin.getDistanceFrom(coordinateMinMax);
+        return distanceA * distanceB;
     }
 
     public List<TrackPoint> getTrackPoints() {

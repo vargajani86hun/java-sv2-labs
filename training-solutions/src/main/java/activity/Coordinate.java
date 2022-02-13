@@ -11,6 +11,20 @@ public class Coordinate {
         this.longitude = longitude;
     }
 
+    public double getDistanceFrom(Coordinate other) {
+        final int R = 6371; //Radius of the earth in kilometers
+
+        double latDistance = Math.toRadians(other.latitude - latitude);
+        double lonDistance = Math.toRadians(other.longitude - longitude);
+        double a = Math.pow(Math.sin(latDistance / 2), 2)
+                + Math.cos(Math.toRadians(latitude))
+                * Math.cos(Math.toRadians(other.latitude))
+                * Math.pow(Math.sin(lonDistance / 2), 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return R * c * 1000; //Convert to meters
+    }
+
     public double getLatitude() {
         return latitude;
     }
