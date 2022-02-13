@@ -20,7 +20,11 @@ public class Track {
     }
 
     public double getDistance() {
-        return 0;
+        double fullDistance = 0;
+        for (int i = 0; i < trackPoints.size() - 1; i++) {
+            fullDistance += trackPoints.get(i).getDistanceFrom(trackPoints.get(i + 1));
+        }
+        return fullDistance;
     }
 
     public double getFullDecrease() {
