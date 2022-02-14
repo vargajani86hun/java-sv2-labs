@@ -1,5 +1,6 @@
 package activity;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,6 +12,9 @@ public class Track {
         trackPoints.add(trackPoint);
     }
 
+    public void loadFromGpx(InputStream is) {
+
+    }
     public Coordinate findMaximumCoordinate() {
         return null;
     }

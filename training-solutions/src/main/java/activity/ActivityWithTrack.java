@@ -4,7 +4,7 @@ public class ActivityWithTrack implements Activity {
     private ActivityType activityType;
     private Track track;
 
-    public ActivityWithTrack(ActivityType activityType, Track track) {
+    public ActivityWithTrack(Track track, ActivityType activityType) {
         this.activityType = activityType;
         this.track = track;
     }
