@@ -16,11 +16,23 @@ public class Track {
 
     }
     public Coordinate findMaximumCoordinate() {
-        return null;
+        double maxLongitude = trackPoints.stream()
+                .mapToDouble(t -> t.getCoordinate().getLongitude())
+                .max().orElse(0);
+        double maxLatitude = trackPoints.stream()
+                .mapToDouble(t -> t.getCoordinate().getLatitude())
+                .max().orElse(0);
+        return new Coordinate(maxLatitude, maxLongitude);
     }
 
     public Coordinate findMinimumCoordinate() {
-        return null;
+        double minLongitude = trackPoints.stream()
+                .mapToDouble(t -> t.getCoordinate().getLongitude())
+                .min().orElse(0);
+        double minLatitude = trackPoints.stream()
+                .mapToDouble(t -> t.getCoordinate().getLatitude())
+                .min().orElse(0);
+        return new Coordinate(minLatitude, minLongitude);
     }
 
     public double getDistance() {
@@ -34,44 +46,38 @@ public class Track {
     public double getFullDecrease() {
         double fullDecrease = 0;
         for (int i = 0; i < trackPoints.size() - 1; i++) {
-            double decrease = trackPoints.get(i).getElevation() - trackPoints.get(i + 1).getElevation();
+            double decrease = trackPoints.get(i + 1).getElevation() - trackPoints.get(i).getElevation();
             fullDecrease += (0 > decrease) ? decrease : 0;
         }
-        return fullDecrease;
+        return Math.abs(fullDecrease);
     }
 
     public double getFullElevation() {
         double fullElevation = 0;
         for (int i = 0; i < trackPoints.size() - 1; i++) {
-            double elevation = trackPoints.get(i).getElevation() - trackPoints.get(i + 1).getElevation();
+            double elevation = trackPoints.get(i + 1).getElevation() - trackPoints.get(i).getElevation();
             fullElevation += (0 < elevation) ? elevation : 0;
         }
         return fullElevation;
     }
 
     public double getRectangleArea() {
-        double minLongitude = trackPoints.stream()
-                .mapToDouble(t -> t.getCoordinate().getLongitude())
-                .min().orElse(0);
-        double maxLongitude = trackPoints.stream()
-                .mapToDouble(t -> t.getCoordinate().getLongitude())
-                .max().orElse(0);
-        double minLatitude = trackPoints.stream()
-                .mapToDouble(t -> t.getCoordinate().getLatitude())
-                .min().orElse(0);
-        double maxLatitude = trackPoints.stream()
-                .mapToDouble(t -> t.getCoordinate().getLatitude())
-                .max().orElse(0);
-        Coordinate coordinateMinMin = new Coordinate(minLatitude, minLongitude);
-        Coordinate coordinateMinMax = new Coordinate(minLatitude, maxLongitude);
-        Coordinate coordinateMaxMin = new Coordinate(maxLatitude, minLongitude);
-        Coordinate coordinateMaxMax = new Coordinate(maxLatitude, maxLongitude);
-        double distanceA = coordinateMinMin.getDistanceFrom(coordinateMaxMin);
-        double distanceB = coordinateMinMin.getDistanceFrom(coordinateMinMax);
-        return distanceA * distanceB;
+        TrackPoint minimum = new TrackPoint(findMinimumCoordinate(), 0);
+        TrackPoint maximum = new TrackPoint(findMaximumCoordinate(), getLargestElevation());
+        double diagonal = minimum.getDistanceFrom(maximum);
+        return Math.pow(diagonal, 2) / 2;
     }
 
     public List<TrackPoint> getTrackPoints() {
         return Collections.unmodifiableList(trackPoints);
+    }
+
+    private double getLargestElevation() {
+        double largestElevation = 0;
+        for (int i = 0; i < trackPoints.size() - 1; i++) {
+            double elevation = trackPoints.get(i + 1).getElevation() - trackPoints.get(i).getElevation();
+            largestElevation = (largestElevation < elevation) ? elevation : largestElevation;
+        }
+        return largestElevation;
     }
 }

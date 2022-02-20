@@ -12,7 +12,7 @@ public class Coordinate {
     }
 
     public double getDistanceFrom(Coordinate other) {
-        final int R = 6371; //Radius of the earth in kilometers
+        final double R = 6371.0088; //Radius of the earth in kilometers
 
         double latDistance = Math.toRadians(other.latitude - latitude);
         double lonDistance = Math.toRadians(other.longitude - longitude);
@@ -22,7 +22,7 @@ public class Coordinate {
                 * Math.pow(Math.sin(lonDistance / 2), 2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-        return R * c * 1000; //Convert to meters
+        return R * c * 1000.; //Convert to meters
     }
 
     public double getLatitude() {
