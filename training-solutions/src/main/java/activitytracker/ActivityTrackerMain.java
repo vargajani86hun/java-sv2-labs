@@ -4,10 +4,10 @@ import activity.ActivityType;
 import org.mariadb.jdbc.MariaDbDataSource;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ActivityTrackerMain {
     public static void main(String[] args) {
@@ -26,6 +26,8 @@ public class ActivityTrackerMain {
         atm.insertActivityToDB(running, ds);
         atm.insertActivityToDB(biking2, ds);
         atm.insertActivityToDB(basketBall, ds);
+
+        System.out.println(atm.getActivitiesFromDB(ds));
 
     }
 
@@ -54,5 +56,29 @@ public class ActivityTrackerMain {
         } catch (SQLException sqlE) {
             throw new IllegalStateException("Cannot make insert", sqlE);
         }
+    }
+
+    public List<Activity> getActivitiesFromDB(DataSource ds) {
+        try (Connection conn = ds.getConnection();
+             Statement stmt = conn.createStatement()) {//language=sql
+
+            try (ResultSet rs = stmt.executeQuery("SELECT * FROM activities")) {
+                return getActivitiesFromResultSet(rs);
+            }
+
+        } catch (SQLException sqle) {
+            throw new IllegalStateException("Unable to read DB", sqle);
+        }
+    }
+
+    private List<Activity> getActivitiesFromResultSet(ResultSet rs) throws SQLException{
+        List<Activity> results = new ArrayList<>();
+        while(rs.next()) {
+            results.add(new Activity(rs.getInt("id"),
+                    rs.getTimestamp("start_time").toLocalDateTime(),
+                    rs.getString("description"),
+                    ActivityType.valueOf(rs.getString("activity_type"))));
+        }
+        return results;
     }
 }
