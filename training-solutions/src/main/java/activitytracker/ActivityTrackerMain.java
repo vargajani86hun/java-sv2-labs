@@ -21,7 +21,7 @@ public class ActivityTrackerMain {
                 "Csapat építés", ActivityType.BASKETBALL);
         ActivityTrackerMain atm = new ActivityTrackerMain();
 
-        MariaDbDataSource ds = atm.connectMariaDB("activitytracker", "activitytracker");
+        MariaDbDataSource ds = atm.connectMariaDB("jdbc:mariadb://localhost:3306/activitytracker?useUnicode=true", "activitytracker", "activitytracker");
         atm.insertActivityToDB(biking1, ds);
         atm.insertActivityToDB(running, ds);
         atm.insertActivityToDB(biking2, ds);
@@ -29,10 +29,10 @@ public class ActivityTrackerMain {
 
     }
 
-    private MariaDbDataSource connectMariaDB(String user, String password) {
+    public MariaDbDataSource connectMariaDB(String sqlUrl, String user, String password) {
         MariaDbDataSource mdbDataSource = new MariaDbDataSource();
         try {
-            mdbDataSource.setUrl("jdbc:mariadb://localhost:3306/activitytracker?useUnicode=true");
+            mdbDataSource.setUrl(sqlUrl);
             mdbDataSource.setUser(user);
             mdbDataSource.setPassword(password);
             return mdbDataSource;
@@ -41,7 +41,7 @@ public class ActivityTrackerMain {
         }
     }
 
-    private void insertActivityToDB(Activity activity, DataSource ds) {
+    public void insertActivityToDB(Activity activity, DataSource ds) {
         try (//language=sql
              Connection conn = ds.getConnection();
              PreparedStatement pStmt = conn.prepareStatement(
