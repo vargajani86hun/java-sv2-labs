@@ -59,12 +59,12 @@ public class ActivityTrackerMain {
     }
 
     public List<Activity> getActivitiesFromDB(DataSource ds) {
-        try (Connection conn = ds.getConnection();
-             Statement stmt = conn.createStatement()) {//language=sql
+        try (//language=sql
+             Connection conn = ds.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM activities")) {
 
-            try (ResultSet rs = stmt.executeQuery("SELECT * FROM activities")) {
-                return getActivitiesFromResultSet(rs);
-            }
+            return getActivitiesFromResultSet(rs);
 
         } catch (SQLException sqle) {
             throw new IllegalStateException("Unable to read DB", sqle);
