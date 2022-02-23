@@ -57,13 +57,13 @@ public class ActivityDao {
             Statement stmt = conn.createStatement();
             //language=sql
             ResultSet rs = stmt.executeQuery(
-                    "SELECT * FROM ativities;"
+                    "SELECT * FROM activities;"
             )) {
 
             return getActivities(rs);
 
         } catch (SQLException sqle) {
-            throw new IllegalStateException("Unnable to read db", sqle);
+            throw new IllegalStateException("Unable to read db", sqle);
         }
     }
 
