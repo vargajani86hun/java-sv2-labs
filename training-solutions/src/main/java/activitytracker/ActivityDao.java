@@ -45,7 +45,7 @@ public class ActivityDao {
                         activity.ActivityType.valueOf(rs.getString("activity_type")));
             }
 
-            throw new IllegalArgumentException("Cannot find activity with " + id + " id.");
+            throw new IllegalArgumentException("Cannot find activity with id " + id);
 
         } catch (SQLException sqle) {
             throw new IllegalStateException("Unable to execute query", sqle);
