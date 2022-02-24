@@ -28,6 +28,10 @@ public class Activity {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public LocalDateTime getStartTime() {
         return startTime;
     }

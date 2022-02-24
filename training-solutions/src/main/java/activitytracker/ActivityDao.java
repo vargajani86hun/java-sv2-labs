@@ -13,7 +13,7 @@ public class ActivityDao {
         this.ds = ds;
     }
 
-    public void saveActivity(Activity activity) {
+    public Activity saveActivity(Activity activity) {
         try (Connection conn = ds.getConnection();
              //language=sql
              PreparedStatement stmt = conn.prepareStatement(
@@ -24,6 +24,8 @@ public class ActivityDao {
             stmt.setString(2, activity.getDescription());
             stmt.setString(3, activity.getType().toString());
             stmt.executeUpdate();
+            activity.setId(getActivityIdFromDB(activity, conn));
+            return activity;
         } catch (SQLException sqle) {
             throw new IllegalStateException("Unable to insert", sqle);
         }
@@ -80,5 +82,23 @@ public class ActivityDao {
         }
 
         return results;
+    }
+
+    private long getActivityIdFromDB(Activity activity, Connection conn) throws SQLException{
+        try (//language=sql
+                PreparedStatement stmt = conn.prepareStatement(
+                "SELECT id FROM activities WHERE start_time = ? AND `description` = ? AND activity_type = ?;"
+        )) {
+            stmt.setTimestamp(1, Timestamp.valueOf(activity.getStartTime()));
+            stmt.setString(2, activity.getDescription());
+            stmt.setString(3, activity.getType().toString());
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getLong("id");
+                }
+                throw new IllegalArgumentException("Cannot find activity");
+            }
+        }
     }
 }
