@@ -84,24 +84,6 @@ public class ActivityDao {
         return results;
     }
 
-    private long getActivityIdFromDB(Activity activity, Connection conn) throws SQLException{
-        try (//language=sql
-                PreparedStatement stmt = conn.prepareStatement(
-                "SELECT id FROM activities WHERE start_time = ? AND `description` = ? AND activity_type = ?;"
-        )) {
-            stmt.setTimestamp(1, Timestamp.valueOf(activity.getStartTime()));
-            stmt.setString(2, activity.getDescription());
-            stmt.setString(3, activity.getType().toString());
-
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getLong("id");
-                }
-                throw new IllegalArgumentException("Cannot find activity");
-            }
-        }
-    }
-
     private long getGeneratedId(PreparedStatement pst) throws SQLException{
         try (ResultSet rs = pst.getGeneratedKeys()) {
             if (rs.next()) {
