@@ -18,13 +18,13 @@ public class ActivityDao {
              //language=sql
              PreparedStatement stmt = conn.prepareStatement(
                      "INSERT INTO activities (`start_time`, `description`, `activity_type`)" +
-                             "VALUES (?, ?, ?);"
+                             "VALUES (?, ?, ?);", Statement.RETURN_GENERATED_KEYS
              )) {
             stmt.setTimestamp(1, Timestamp.valueOf(activity.getStartTime()));
             stmt.setString(2, activity.getDescription());
             stmt.setString(3, activity.getType().toString());
             stmt.executeUpdate();
-            activity.setId(getActivityIdFromDB(activity, conn));
+            activity.setId(getGeneratedId(stmt));
             return activity;
         } catch (SQLException sqle) {
             throw new IllegalStateException("Unable to insert", sqle);
@@ -98,6 +98,16 @@ public class ActivityDao {
                     return rs.getLong("id");
                 }
                 throw new IllegalArgumentException("Cannot find activity");
+            }
+        }
+    }
+
+    private long getGeneratedId(PreparedStatement pst) throws SQLException{
+        try (ResultSet rs = pst.getGeneratedKeys()) {
+            if (rs.next()) {
+                return rs.getLong(1);
+            } else {
+                throw new IllegalStateException("Key has not generated.");
             }
         }
     }
