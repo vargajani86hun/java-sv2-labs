@@ -4,7 +4,6 @@ import activity.ActivityType;
 import org.mariadb.jdbc.MariaDbDataSource;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

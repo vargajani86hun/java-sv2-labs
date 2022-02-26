@@ -8,6 +8,7 @@ import org.mariadb.jdbc.MariaDbDataSource;
 
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -36,15 +37,6 @@ class ActivityDaoTest {
     }
 
     @Test
-    void testSaveActivity() {
-        Activity biking = new Activity(1, LocalDateTime.of(2021, 10, 22, 10, 30),
-                "Pallag oda-vissza", ActivityType.BIKING);
-        activityDao.saveActivity(biking);
-
-        assertEquals(List.of(biking), activityDao.listActivities());
-    }
-
-    @Test
     void testFindActivityById() {
         for (Activity a: activities) {
             activityDao.saveActivity(a);
@@ -63,6 +55,48 @@ class ActivityDaoTest {
         }
 
         assertEquals(activities, activityDao.listActivities());
+    }
+
+    @Test
+    void testSaveActivity() {
+        Activity biking = new Activity(1, LocalDateTime.of(2021, 10, 22, 10, 30),
+                "Pallag oda-vissza", ActivityType.BIKING);
+        activityDao.saveActivity(biking);
+
+        assertEquals(List.of(biking), activityDao.listActivities());
+    }
+
+    @Test
+    void testSaveActivityWithTrackPoints() {
+        List<TrackPoint> trackPoints = List.of(
+                new TrackPoint(LocalDate.of(2021, 10, 12), 12.45, 42.72),
+                new TrackPoint(LocalDate.of(2021, 10, 12), 12.15, 43.11),
+                new TrackPoint(LocalDate.of(2021, 10, 12), 13.5, 42.88),
+                new TrackPoint(LocalDate.of(2021, 10, 12), 12.72, 41.93));
+        Activity activity = new Activity(LocalDateTime.of(2021, 10, 22, 10, 30),
+                "Pallag oda-vissza", ActivityType.BIKING, trackPoints);
+
+        activityDao.saveActivityWithTrackPoints(activity);
+        List<Activity> savedActivities = activityDao.listActivitiesWithTrackPoints();
+
+        assertTrue(trackPoints.containsAll(savedActivities.get(0).getTrackPoints()));
+    }
+
+    @Test
+    void testSaveActivityWithInvalidTrackPoints() {
+        List<TrackPoint> trackPoints = List.of(
+                new TrackPoint(LocalDate.of(2021, 10, 12), 12.45, 42.72),
+                new TrackPoint(LocalDate.of(2021, 10, 12), 12.15, 43.11),
+                new TrackPoint(LocalDate.of(2021, 10, 12), 113.5, 42.88),
+                new TrackPoint(LocalDate.of(2021, 10, 12), 12.72, 41.93));
+        Activity activity = new Activity(LocalDateTime.of(2021, 10, 22, 10, 30),
+                "Pallag oda-vissza", ActivityType.BIKING, trackPoints);
+
+        IllegalStateException ise = assertThrows(IllegalStateException.class, () ->
+                activityDao.saveActivityWithTrackPoints(activity));
+        assertEquals("Track point has invalid coordinates.", ise.getMessage());
+
+        assertTrue(activityDao.listActivitiesWithTrackPoints().isEmpty());
     }
 
     private void initActivities() {
