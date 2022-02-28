@@ -1,6 +1,9 @@
 package activity;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,8 +16,34 @@ public class Track {
     }
 
     public void loadFromGpx(InputStream is) {
+        List<Coordinate> coordinates = new ArrayList<>();
+        List<Double> elevations = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.trim().startsWith("<trkpt")) {
+                    String[] parts = line.trim().split("\"");
+                    coordinates.add(new Coordinate(Double.parseDouble(parts[1]), Double.parseDouble(parts[3])));
+                } else if (line.trim().startsWith("<ele>")) {
+                    elevations.add(Double.parseDouble(line.trim().substring(5, 10)));
+                }
+            }
+        } catch (IOException ioe) {
+            throw new IllegalStateException("Cannot read input stream", ioe);
+        }
 
+        buildListFromCoordinatesAndElevations(coordinates, elevations);
     }
+
+    private void buildListFromCoordinatesAndElevations(List<Coordinate> coordinates, List<Double> elevations) {
+        if (coordinates.size() != elevations.size()) {
+            throw new IllegalStateException("Coordinates and elevations has not got equal number");
+        }
+        for (int i = 0; i < coordinates.size(); i++) {
+            trackPoints.add(new TrackPoint(coordinates.get(i), elevations.get(i)));
+        }
+    }
+
     public Coordinate findMaximumCoordinate() {
         double maxLongitude = trackPoints.stream()
                 .mapToDouble(t -> t.getCoordinate().getLongitude())
@@ -76,7 +105,7 @@ public class Track {
         double largestElevation = 0;
         for (int i = 0; i < trackPoints.size() - 1; i++) {
             double elevation = trackPoints.get(i + 1).getElevation() - trackPoints.get(i).getElevation();
-            largestElevation = (largestElevation < elevation) ? elevation : largestElevation;
+            largestElevation = Math.max(largestElevation, elevation);
         }
         return largestElevation;
     }
