@@ -7,6 +7,10 @@ import java.util.List;
 
 public class ActivityDao {
 
+    //language=sql
+    private static final String FULL_INSERT_INTO_ACTIVITY_QUERY =
+            "INSERT INTO activities (`start_time`, `description`, `activity_type`) VALUES (?, ?, ?);";
+
     private DataSource ds;
 
     public ActivityDao(DataSource ds) {
@@ -82,8 +86,7 @@ public class ActivityDao {
         try (Connection conn = ds.getConnection();
              //language=sql
              PreparedStatement stmt = conn.prepareStatement(
-                     "INSERT INTO activities (`start_time`, `description`, `activity_type`)" +
-                             "VALUES (?, ?, ?);", Statement.RETURN_GENERATED_KEYS
+                     FULL_INSERT_INTO_ACTIVITY_QUERY, Statement.RETURN_GENERATED_KEYS
              )) {
 
             stmt.setTimestamp(1, Timestamp.valueOf(activity.getStartTime()));
@@ -101,8 +104,7 @@ public class ActivityDao {
         try (Connection conn = ds.getConnection();
              //language=sql
              PreparedStatement stmt = conn.prepareStatement(
-                    "INSERT INTO activities(`start_time`, `description`, `activity_type`)" +
-                            "VALUES (?, ?, ?);", Statement.RETURN_GENERATED_KEYS
+                     FULL_INSERT_INTO_ACTIVITY_QUERY, Statement.RETURN_GENERATED_KEYS
              )) {
             conn.setAutoCommit(false);
             stmt.setTimestamp(1, Timestamp.valueOf(activity.getStartTime()));
@@ -147,19 +149,23 @@ public class ActivityDao {
                             "SELECT * FROM track_point WHERE id = ?"
                     )) {
                 stmt.setLong(1, id);
-                try (ResultSet trackPointRS = stmt.executeQuery()) {
-                    results.add(new Activity(
-                            id,
-                            rs.getTimestamp("start_time").toLocalDateTime(),
-                            rs.getString("description"),
-                            activity.ActivityType.valueOf(rs.getString("activity_type")),
-                            getTrackPoints(trackPointRS)
-                    ));
-                }
+                results.add(getActivityByIdWithTrackPointsFromResultSet(rs, id, stmt));
             }
         }
 
         return results;
+    }
+
+    private Activity getActivityByIdWithTrackPointsFromResultSet(ResultSet rs,  long id, PreparedStatement stmt) throws SQLException {
+        try (ResultSet trackPointRS = stmt.executeQuery()) {
+            return (new Activity(
+                    id,
+                    rs.getTimestamp("start_time").toLocalDateTime(),
+                    rs.getString("description"),
+                    activity.ActivityType.valueOf(rs.getString("activity_type")),
+                    getTrackPoints(trackPointRS)
+            ));
+        }
     }
 
     private Activity getActivityByIdFromResultSet(ResultSet rs, long id) throws SQLException{
@@ -194,7 +200,7 @@ public class ActivityDao {
         return results;
     }
 
-    private void saveTrackPoints(long id, List<TrackPoint> trackPoints, Connection conn) throws SQLException{
+    private void saveTrackPoints(long activityId, List<TrackPoint> trackPoints, Connection conn) throws SQLException{
         try (//language=sql
                 PreparedStatement stmt = conn.prepareStatement(
                 "INSERT INTO track_point VALUES (?, ?, ?, ?);"
@@ -203,7 +209,7 @@ public class ActivityDao {
                 if (!tp.isValid()) {
                     throw new IllegalStateException("Track point has invalid coordinates.");
                 }
-                stmt.setLong(1, id);
+                stmt.setLong(1, activityId);
                 stmt.setDate(2, Date.valueOf(tp.getTime()));
                 stmt.setDouble(3, tp.getLat());
                 stmt.setDouble(4, tp.getLon());
