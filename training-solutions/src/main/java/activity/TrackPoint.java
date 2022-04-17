@@ -14,7 +14,7 @@ public class TrackPoint {
     }
 
     public double getDistanceFrom(TrackPoint other) {
-        /*
+
         final double R = 6371.0088; //Radius of the earth in kilometers
 
         double latDistance = Math.toRadians(other.getCoordinate().getLatitude()
@@ -30,13 +30,13 @@ public class TrackPoint {
 
         double height = elevation - other.elevation;
 
-        return Math.sqrt(Math.pow(distance, 2) + Math.pow(height, 2));
-         */
+        return (Math.sqrt(Math.pow(distance, 2) + Math.pow(height, 2)));
+        /*
         double x = coordinate.getLatitude() * DIAGONAL_TO_RADIAN;
         double y = other.coordinate.getLatitude() * DIAGONAL_TO_RADIAN;
         return Math.acos( Math.sin(x) * Math.sin(y) + Math.cos(x) * Math.cos(y)
                 * Math.cos(DIAGONAL_TO_RADIAN * (coordinate.getLongitude()
-                - other.coordinate.getLongitude()))) * DIAGONAL_TO_KILOMETER;
+                - other.coordinate.getLongitude()))) * DIAGONAL_TO_KILOMETER;*/
     }
 
     public Coordinate getCoordinate() {

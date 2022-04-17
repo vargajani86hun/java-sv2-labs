@@ -44,6 +44,7 @@ public class TrackTest {
         track.addTrackPoint(new TrackPoint(new Coordinate(13.7, -6.0), 0));
         track.addTrackPoint(new TrackPoint(new Coordinate(3.67, -42.789), 200));
 
+        assertEquals(13611579.56, track.getDistance(), 1);
         assertTrue(track.getDistance() > 13611579.56 && track.getDistance() < 13611579.66);
     }
 
